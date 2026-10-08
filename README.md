@@ -1,38 +1,35 @@
-# 嵌入式系统第3周实验2
-**姓名**：陆云翠
-**硬件平台**：FRDM-KL28Z
-**实验主题**：GPIO数字输出与状态机入门
+# Embedded Systems — Week 3 Lab 2
+Name: Lu Yuncui
+Hardware Platform: FRDM-KL28Z
+Lab Topic: GPIO Digital Output and State Machine Introduction
 
-## 实验目标
-1. 理解GPIO外设实现数字输出；
-2. 掌握状态转移模型，学会在循环中用C语言实现状态机；
-3. 掌握工程编译、下载、调试，使用断点查看汇编代码与变量。
+## Lab Objectives
+1. Understand digital output implementation with GPIO peripherals.
+2. Master the state transition model and implement state machines in C within a main loop.
+3. Learn project compilation, download and debugging. Use breakpoints to inspect assembly code and variables.
 
-## 完成任务
-### Activity1：克隆、编译、运行示例工程
-成功克隆初始代码，编译下载到FRDM-KL28Z，RGBLED正常闪烁，验证程序保存在Flash，断电不丢失。
+## Completed Tasks
+### Activity 1: Clone, compile and run the sample project
+Successfully clone the initial source code, compile and download firmware to FRDM-KL28Z. Verify RGB LED works normally. Confirm the program is stored in Flash and remains after power cycle.
 
-### Activity2：程序调试
-设置断点，单步调试，查看C源码对应的汇编指令，找到绿色LED点亮指令的内存地址。
+### Activity 2: Program Debugging
+Set breakpoints and perform single-step debugging. Inspect assembly instructions corresponding to C source code. Locate the memory address of the instruction that turns on the green LED.
 
-### Activity3：7色RGB循环状态机（演示任务）
-使用7状态状态机实现RGB7种颜色循环：
-- 单色（红、绿、蓝）保持2s
-- 混合色（青、品红、黄、白）保持1s
-- 完整周期10s，无限循环。
+### Activity 3: 7-colour RGB cycle state machine (Demonstration Task)
+Implement a 7-state state machine to cycle through all 7 RGB colours:
+- Primary colours (Red, Green, Blue): hold for 2 seconds each
+- Mixed colours (Cyan, Magenta, Yellow, White): hold for 1 second each
+- Full cycle duration: 10 seconds, repeating infinitely
 
-### Activity4：版本管理
-使用git提交代码并推送至本仓库，更新README记录实验。
+### Activity 4: Version Control
+Commit source code locally, push changes to the remote GitHub repository and update this README file to document lab progress.
 
-### Activity5：双独立状态机多任务（演示任务）
-两个LED独立运行：红灯5s亮5s灭；绿灯3s亮3s灭。
-采用两套独立计数器与状态变量，主循环同时调用两个任务函数。
+### Activity 5: Lightweight Multi-tasking with State Machines (Demonstration Task)
+On bare-metal hardware without an operating system, use SysTick timer and state machines to implement two independent LED blink tasks.
+The two LEDs have separate on/off timing and run in parallel inside one main loop, with no blocking delay functions.
 
-### Activity6、Activity7（选做）
-Activity6：单任务实现双灯逻辑，4状态状态机；
-Activity7：将7色彩灯改用多任务方式实现。
+### Activity 6: Multi-task Timing Debugging
+Set breakpoints to observe state switching events of both tasks. Verify that the timing period of one task is not affected by the other.
 
-## 文件说明
-- main.c：主函数与状态机代码
-- gpio.h：GPIO驱动头文件
-- SysTick.c / SysTick.h：系统滴答定时器，用于计时
+### Activity 7: Lab Summary and Quiz
+Complete the formative quiz for this lab. Document experimental observations, code logic and debugging experience.
